@@ -1,41 +1,16 @@
-# Compiled Lua sources
-luac.out
-
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
-
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
+*.swp
+.ipynb_checkpoints/
+.env/
+data/*
+models/*
+movie_results/*
+logos/*
+*.png
+cifs*
+*.txt
+*.tsv
+meme_4.11.0/*
+visualization_results/*
+visualization_methods/*
+extras/*
+PSB_MODELS/
