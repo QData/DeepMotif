@@ -1,0 +1,16 @@
+*.swp
+.ipynb_checkpoints/
+.env/
+data/*
+models/*
+movie_results/*
+logos/*
+*.png
+cifs*
+*.txt
+*.tsv
+meme_4.11.0/*
+visualization_results/*
+visualization_methods/*
+extras/*
+PSB_MODELS/
