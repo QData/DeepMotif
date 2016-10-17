@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+# DeMo Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks
+## Jack Lanchantin, Ritambhara Singh, Beilun Wang, and Yanjun Qi
+###Accepted to the Pacific Symposium on Biocomputing (PSB) 2017
+https://arxiv.org/abs/1608.03644
 
 
 # Installation
@@ -75,14 +78,5 @@ Class Optimization
 th class_optimization.lua
 ```
 
-=======
-# DeMo Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks
-## Jack Lanchantin, Ritambhara Singh, Beilun Wang, and Yanjun Qi
-###Accepted to the Pacific Symposium on Biocomputing (PSB) 2017
-https://arxiv.org/abs/1608.03644
 
 
-Code coming soon
-
-
->>>>>>> 5812beda7907d39977f4c6acadf37abef99abee1
