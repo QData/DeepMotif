@@ -51,7 +51,7 @@ cmd:option('-save_dir', 'models/')
 local opt = cmd:parse(arg)
 
 
-opt.data_dir = opt.data_root..'/'..opt.dataset..'/'
+local data_dir = opt.data_root..'/'..opt.dataset..'/'
 
 
 
@@ -93,12 +93,12 @@ function file_exists(name)
 end
 
 -- *Uncomment for loop and if statement to Loop through all TFs and run train/test*
--- for TF in lfs.dir(opt.data_dir) do
+-- for TF in lfs.dir(data_dir) do
 -- if TF:sub(1,1) ~= '.' and TF:sub(1,3) ~= 'ALL' then
 
   flag = true
   opt.TF = TF or opt.TF
-  opt.data_dir = opt.data_dir..opt.TF
+  opt.data_dir = data_dir..opt.TF
   print('------TF DATASET-------\n'..opt.data_dir..'\n')
 
 
