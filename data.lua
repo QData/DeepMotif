@@ -3,6 +3,7 @@ require 'nn'
 
 -- Returns a list of tensors for each line in the file
 local function loadData(name, maxLoad)
+  print(name)
     if maxLoad == 0 then maxLoad = 10000000000 end
     local data = seq.lines(name):take(maxLoad):copy()
     function data:size() return #data end
@@ -35,7 +36,11 @@ function createDatasetOneHot(typ, opt, data_size)
             j = matrix:size(2)
             for i = #str,1,-1 do
               if j > 0 then
-                matrix[k][j] = rev_lookup[str:sub(i,i)] --convert letter to onehot
+                if rev_lookup[str:sub(i,i)] then
+                  matrix[k][j] = rev_lookup[str:sub(i,i)] --convert letter to onehot
+                else
+                  matrix[k][j] = #alphabet + 1 --unknown char
+                end
                 j = j - 1
               end
             end
