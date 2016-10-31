@@ -125,7 +125,7 @@ end
     local model = nil
     if opt.init_from ~= '' then -- load a model
       print('Initializing from ', opt.init_from)
-      model = torch.load(opt.init_from).model:type(dtype)
+      model = torch.load(opt.init_from):type(dtype)
     else --create new model
       local opt_clone = torch.deserialize(torch.serialize(opt))
       print(opt_clone)
