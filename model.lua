@@ -121,11 +121,10 @@ function Model:__init(opt)
     self.model:add(nn.TemporalConvolution(input_size, self.cnn_size, self.cnn_filters[#self.cnn_filters]))
     self.model:add(nn.ReLU())
     if self.dropout > 0 then self.model:add(nn.Dropout(self.dropout)) end
+    
     -- Max pool across entire sequence to get unfiform output size,
     -- and transpose (view) to feed into linear classifier
-    -- TODO: find output size on the fly (eliminate fixed seq size)
     self.model:add(nn.Max(2))
-
     self.model:add(nn.View(-1,self.cnn_size))
 
     -- Output classifier of CNN --
