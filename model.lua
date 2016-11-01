@@ -37,7 +37,6 @@ function Model:__init(opt)
   self.rnn_layers = opt.rnn_layers
   self.dropout = opt.dropout
   self.batchnorm = opt.batchnorm
-  self.seq_length = opt.seq_length
   self.unidirectional = opt.unidirectional
   self.wordvec_dim  = #(opt.alphabet)  -- ACGT = 4
   self.cnn = opt.cnn
@@ -107,7 +106,6 @@ function Model:__init(opt)
   ---------------------------------------
   else
     -- Need to compute output sequnece size to be fed to linear classifier
-    local new_seq_length = self.seq_length
     local input_size = self.wordvec_dim
 
     -- Create layers
@@ -117,19 +115,17 @@ function Model:__init(opt)
       self.model:add(nn.ReLU())
       self.model:add(nn.TemporalMaxPooling(self.cnn_pool,self.cnn_pool))
       if self.dropout > 0 then self.model:add(nn.Dropout(self.dropout)) end
-      new_seq_length = new_seq_length - self.cnn_filters[layer] + 1
-      new_seq_length = math.floor(new_seq_length/self.cnn_pool)
     end
 
     -- Last layer of convolution
     self.model:add(nn.TemporalConvolution(input_size, self.cnn_size, self.cnn_filters[#self.cnn_filters]))
     self.model:add(nn.ReLU())
     if self.dropout > 0 then self.model:add(nn.Dropout(self.dropout)) end
-    new_seq_length = new_seq_length - self.cnn_filters[#self.cnn_filters] + 1
     -- Max pool across entire sequence to get unfiform output size,
     -- and transpose (view) to feed into linear classifier
     -- TODO: find output size on the fly (eliminate fixed seq size)
-    self.model:add(nn.TemporalMaxPooling(new_seq_length,new_seq_length))
+    self.model:add(nn.Max(2))
+
     self.model:add(nn.View(-1,self.cnn_size))
 
     -- Output classifier of CNN --
