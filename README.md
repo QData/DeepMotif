@@ -1,7 +1,18 @@
-# DeMo Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks
+# Deep Motif Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks
 ## Jack Lanchantin, Ritambhara Singh, Beilun Wang, and Yanjun Qi
-###Accepted to the Pacific Symposium on Biocomputing (PSB) 2017
+###Pacific Symposium on Biocomputing (PSB) 2017
 https://arxiv.org/abs/1608.03644
+
+### Talk slides:
+
+
+### bibtex:
+@article{lanchantin2016deep,
+  title={Deep Motif Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks},
+  author={Lanchantin, Jack and Singh, Ritambhara and Wang, Beilun and Qi, Yanjun},
+  journal={arXiv preprint arXiv:1608.03644},
+  year={2016}
+}
 
 
 # Installation
