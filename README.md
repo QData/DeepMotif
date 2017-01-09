@@ -4,7 +4,7 @@
 https://arxiv.org/abs/1608.03644
 
 ### Talk slides:
-
+https://github.com/QData/DeepMotif/blob/master/psb_talk_slides.pdf
 
 ### bibtex:
 @article{lanchantin2016deep,
