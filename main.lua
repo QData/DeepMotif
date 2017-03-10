@@ -38,6 +38,10 @@ cmd:option('-TF', 'ATF1_K562_ATF1_-06-325-_Harvard') -- change for different TF
 cmd:option('-alphabet', 'ACGT')
 cmd:option('-size', 0) -- how much of each dataset to load. 0 = full
 cmd:option('-batch_size', 256)
+cmd:option('class_labels','1,0') --specify positive label first
+
+
+
 
 -- Other
 cmd:option('-noprogressbar', false) -- lua progress bar
@@ -50,9 +54,11 @@ cmd:option('-save_dir', 'models/')
 
 local opt = cmd:parse(arg)
 
+opt.class_labels_table = opt.class_labels:split(',')
+opt.num_classes = #opt.class_labels_table
+opt.alphabet_size = #opt.alphabet
 
 local data_dir = opt.data_root..'/'..opt.dataset..'/'
-
 
 
 -- Name of directory to save the models to
@@ -171,7 +177,7 @@ end
 
           -- forward/backward criterion
           local loss = crit:forward(scores, y)
-          local grad_scores = crit:backward(scores, y):view(opt.batch_size, 2, -1):reshape(opt.batch_size,2)
+          local grad_scores = crit:backward(scores, y):view(x:size(1), 2, -1):reshape(x:size(1),2)
 
           -- backward model
           model:backward(x, grad_scores)

@@ -45,6 +45,7 @@ function Model:__init(opt)
   self.cnn_size = opt.cnn_size
   self.cnn_pool = opt.cnn_pool
   self.batch_size = opt.batch_size
+  self.num_classes = opt.num_classes
 
   self.rnns = {}
   self.model = nn.Sequential()
@@ -98,7 +99,7 @@ function Model:__init(opt)
     self.model:add(RNN)
 
     -- Create output classifier of (CNN-)RNN
-    self.model:add(nn.Linear((output_size), 2))
+    self.model:add(nn.Linear((output_size), self.num_classes))
     self.model:add(nn.LogSoftMax())
 
   ---------------------------------------
@@ -121,14 +122,14 @@ function Model:__init(opt)
     self.model:add(nn.TemporalConvolution(input_size, self.cnn_size, self.cnn_filters[#self.cnn_filters]))
     self.model:add(nn.ReLU())
     if self.dropout > 0 then self.model:add(nn.Dropout(self.dropout)) end
-    
+
     -- Max pool across entire sequence to get unfiform output size,
     -- and transpose (view) to feed into linear classifier
     self.model:add(nn.Max(2))
     self.model:add(nn.View(-1,self.cnn_size))
 
     -- Output classifier of CNN --
-    self.model:add(nn.Linear(self.cnn_size,2))
+    self.model:add(nn.Linear(self.cnn_size,self.num_classes))
     self.model:add(nn.LogSoftMax())
   end
 
