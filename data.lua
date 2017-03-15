@@ -34,7 +34,7 @@ function createDatasetOneHot(typ, opt)
     local class_labels = table_invert(opt.class_labels_table)
 
     setmetatable(inputs, {__index = function(self, ind)
-      local upper_limit = math.min((ind+opt.batch_size),(size/2))
+      local upper_limit = math.min((ind+opt.batch_size),((size/2)+1))
       local batch_len = upper_limit-ind
       local seq_len = opt.seq_length
       -- len = #seqs[ind*2]
@@ -54,7 +54,7 @@ function createDatasetOneHot(typ, opt)
 
 
     setmetatable(outputs, {__index = function(self, ind)
-      local upper_limit = math.min((ind+opt.batch_size),(size/2))
+      local upper_limit = math.min((ind+opt.batch_size),((size/2)+1))
       local batch_len = upper_limit-ind
       local labels = torch.ones(batch_len)
       local batch_dim = 1
