@@ -38,6 +38,13 @@ luarocks install cutorch
 luarocks install cunn
 ```
 
+## LFS
+
+Install git large file storage (LFS) in order to download the dataset directly from this git repository.
+
+https://git-lfs.github.com/
+
+
 ## Visualization Method Dependencies
 
 Weblogo: http://weblogo.berkeley.edu/
