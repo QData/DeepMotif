@@ -56,6 +56,12 @@ for _,TF in pairs(TFs) do
   opt = {}
   opt.data_dir = data_dir
   opt.alphabet = alphabet
+  opt.class_labels = '1,0'
+  opt.class_labels_table = opt.class_labels:split(',')
+  opt.num_classes = #opt.class_labels_table
+  opt.alphabet_size = #opt.alphabet
+  opt.batch_size = 1
+  opt.seq_length = 101
   test_seqs = createDatasetOneHot("test", opt)
 
   -- Load Models
@@ -77,7 +83,7 @@ for _,TF in pairs(TFs) do
     y = test_seqs.labels[t]:type(dtype)
 
     --####################### CREATE SEQ LOGO ###############################--
-    s2l_filename = save_path..'sequence_'..t..'.txt'
+    s2l_filename = save_path..'sequence_'..tostring(t)..'.txt'
     f = io.open(s2l_filename, 'w')
     print(s2l_filename)
     f:write('PO ')
