@@ -166,7 +166,8 @@ end
           x = data.train.inputs[t]:type(dtype)
           y = data.train.labels[t]:type(dtype)
 
-          -- forward model
+         
+		  -- forward model
           local scores = model:forward(x)
           -- print(scores)
           -- os.exit()
@@ -180,6 +181,8 @@ end
           local grad_scores = crit:backward(scores, y):view(x:size(1), 2, -1):reshape(x:size(1),2)
 
           -- backward model
+          -- print(x)
+          -- print(grad_scores)
           model:backward(x, grad_scores)
 
           -- clip gradients
@@ -263,7 +266,7 @@ end
     if flag then
       lfs.mkdir(opt.save_dir..model_name)
       lfs.mkdir(opt.save_dir..model_name..'/'..opt.TF)
-      torch.save(lfs.currentdir()..'/'..opt.save_dir..model_name..'/'..opt.TF..'/best_model.t7', best_model)
+      torch.save(lfs.currentdir()..'/'..opt.save_dir..model_name..'/'..opt.TF..'/best_model.t7', model)
       torch.save(opt.save_dir..model_name..'/'..opt.TF..'/log'..'.t7', log)
     end
   end
