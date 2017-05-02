@@ -19,7 +19,7 @@ viz_dir = 'visualization_results/'
 
 -- ****************************************************************** --
 -- ****************** CHANGE THESE FIELDS *************************** --
-TFs = {'GATA1_K562_GATA-1_USC'}
+TFs = {'ATF1_K562_ATF1_-06-325-_Harvard'}
 cnn_model = 'model=CNN,cnn_size=128,cnn_filters=9-5-3,dropout=0.5,learning_rate=0.01,batch_size=256'
 rnn_model = 'model=RNN,rnn_size=32,rnn_layers=1,dropout=0.5,learning_rate=0.01,batch_size=256'
 cnnrnn_model = 'model=CNN-RNN,cnn_size=128,cnn_filter=9,rnn_size=32,rnn_layers=1,dropout=0.5,learning_rate=0.01,batch_size=256'
