@@ -56,7 +56,7 @@ R: https://www.r-project.org/
 
 
 ## Step 1: Get the Data
-tar xvzf data/deepbind.tar.gz tar xvzf -C data/
+tar xvzf data/deepbind.tar.gz -C data/
 
 
 ## Step 2: Train the model
