@@ -12,16 +12,16 @@ data = {}
 dtype = 'torch.CudaTensor'
 
 -- specify directories
-model_root = 'models'
+model_root = 'models/'
 data_root = 'data/deepbind/'
 viz_dir = 'visualization_results/'
 
 -- ****************************************************************** --
 -- ****************** CHANGE THESE FIELDS *************************** --
-TFs = {'GATA1_K562_GATA-1_USC'}
-cnn_model = 'model=CNN,cnn_size=128,cnn_filters=9-5-3,dropout=0.5,learning_rate=0.01,batch_size=256'
-rnn_model = 'model=RNN,rnn_size=32,rnn_layers=1,dropout=0.5,learning_rate=0.01,batch_size=256'
-cnnrnn_model = 'model=CNN-RNN,cnn_size=128,cnn_filter=9,rnn_size=32,rnn_layers=1,dropout=0.5,learning_rate=0.01,batch_size=256'
+TFs = {'ATF1_K562_ATF1_-06-325-_Harvard'}
+cnn_model_name = 'model=CNN,cnn_size=128,cnn_filters=9-5-3,dropout=0.5,learning_rate=0.01,batch_size=256'
+rnn_model_name = 'model=RNN,rnn_size=32,rnn_layers=1,dropout=0.5,learning_rate=0.01,batch_size=256'
+cnnrnn_model_name = 'model=CNN-RNN,cnn_size=128,cnn_filter=9,rnn_size=32,rnn_layers=1,dropout=0.5,learning_rate=0.01,batch_size=256'
 
 model_names = {rnn_model_name,cnn_model_name,cnnrnn_model_name}
 -- ****************************************************************** --
@@ -64,6 +64,7 @@ for _,TF in pairs(TFs) do
   for model_name, model in pairs(models) do
     print('\n ****** Optimizing '..model_name..' *******\n')
     print(model.model)
+    model.model:remove(1)
     model:resetStates()
 
     motif = torch.rand(1,101,4):type(dtype)
