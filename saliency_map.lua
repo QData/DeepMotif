@@ -19,7 +19,7 @@ cmd:option('-TF', 'ATF1_K562_ATF1_-06-325-_Harvard') -- change for different TF
 cmd:option('-alphabet', 'ACGT')
 cmd:option('-size', 0) -- how much of each dataset to load. 0 = full
 cmd:option('-batch_size', 1)
-cmd:option('class_labels','1,0') --specify positive label first
+cmd:option('-class_labels','1,0') --specify positive label first
 
 
 local opt = cmd:parse(arg)
