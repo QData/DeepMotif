@@ -8,11 +8,13 @@ https://github.com/QData/DeepMotif/blob/master/psb_talk_slides.pdf
 
 ### bibtex:
 ```
-@article{lanchantin2016deep,
-  title={Deep Motif Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks},
+@inproceedings{lanchantin2017deep,
+  title={Deep motif dashboard: Visualizing and understanding genomic sequences using deep neural networks},
   author={Lanchantin, Jack and Singh, Ritambhara and Wang, Beilun and Qi, Yanjun},
-  journal={arXiv preprint arXiv:1608.03644},
-  year={2016}
+  booktitle={PACIFIC SYMPOSIUM ON BIOCOMPUTING 2017},
+  pages={254--265},
+  year={2017},
+  organization={World Scientific}
 }
 ```
 
