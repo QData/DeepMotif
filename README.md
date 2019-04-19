@@ -1,5 +1,5 @@
 # Deep Motif Dashboard: Visualizing and Understanding Genomic Sequences Using Deep Neural Networks
-## Jack Lanchantin, Ritambhara Singh, Beilun Wang, and Yanjun Qi
+### Jack Lanchantin, Ritambhara Singh, Beilun Wang, and Yanjun Qi
 ### Pacific Symposium on Biocomputing (PSB) 2017
 https://arxiv.org/abs/1608.03644
 
@@ -17,6 +17,9 @@ https://github.com/QData/DeepMotif/blob/master/psb_talk_slides.pdf
   organization={World Scientific}
 }
 ```
+
+[![LICENSE](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/QData/DeepMotif/blob/master/LICENSE)
+
 
 # Installation
 
